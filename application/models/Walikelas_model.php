@@ -13,6 +13,14 @@ class Walikelas_model extends CI_Model
         return $this->db->get('kelas')->result_array();
     }
 
+	public function getWaliKelas(){
+		$query = "SELECT *
+                    FROM `walikelas` JOIN `kelas`
+                      ON `walikelas`.`kelas_id` = `kelas`.`id`
+        ";
+		return $this->db->query($query)->result_array();
+	}
+
     public function hapusWalikelas($email, $user, $result)
     {
         $this->db->set($email);
@@ -64,10 +72,6 @@ class Walikelas_model extends CI_Model
         $data2 = [
             'name' => $name,
             'email' => $email,
-            'image' => 'default.jpg',
-            'password' => $email,
-            'role_id' => 3,
-            'is_active' => 1,
             'date_created' => time()
         ];
 
@@ -75,6 +79,7 @@ class Walikelas_model extends CI_Model
         $this->db->set($data2);
         $this->db->where('email', $email);
         $this->db->update('walikelas', $data1);
+		$this->db->where('email', $email);
         $this->db->update('user', $data2);
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

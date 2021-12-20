@@ -17,7 +17,7 @@
                         <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
-                        <label for="nok">Nomor KK (NOK)</label>
+                        <label for="nok">Nomor Induk Siswa (NIS)</label>
                         <input type="text" class="form-control" id="nok" name="nok" maxlength="16" value="<?= set_value('nok'); ?>">
                         <?= form_error('nok', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>

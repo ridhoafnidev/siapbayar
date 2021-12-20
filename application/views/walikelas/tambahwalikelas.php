@@ -21,10 +21,17 @@
                         <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
                         <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
+
                     <div class="form-group">
                         <label for="kelas_id">Kelas Binaan</label>
-                        <input type="text" class="form-control" id="kelas_id" name="kelas_id" value="<?= set_value('kelas_id'); ?>">
-                        <?= form_error('kelas_id', '<small class="text-danger pl-3">', '</small>'); ?>
+						<?= form_error('kelas_id', '<small class="text-danger pl-3">', '</small>'); ?>
+						<select class="custom-select form-control" id="kelas_id" name="kelas_id" type="text">
+							<option value="">-- Pilih kelas --</option> -->
+							<?php foreach ($kelas as $k) : ?>
+								<option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
+							<?php endforeach; ?>
+						</select>
+						<?= form_error('kelas_id', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Simpan</button>

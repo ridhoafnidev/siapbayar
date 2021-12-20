@@ -16,7 +16,7 @@
                         <tr>
                             <th scope="col">Nama Siswa</th>
                             <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">NIK</th>
+                            <th scope="col">NIS</th>
                             <th scope="col">Kelas</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -26,7 +26,7 @@
                             <tr>
                                 <th scope="row"><?= $s['nama_siswa']; ?></th>
                                 <th scope="row"><?= $s['jenis_kelamin']; ?></th>
-                                <th scope="row"><?= $s['nik']; ?></th>
+                                <th scope="row"><?= $s['nok']; ?></th>
                                 <th scope="row"><?= $s['nama_kelas']; ?></th>
                                 <td class="text-center">
 
@@ -80,7 +80,7 @@
                             <input type="text" class="form-control" id="nik" value="<?= $s['nama_siswa']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="nok">Nomor KK (NOK)</label>
+                            <label for="nok">Nomor Induk Siswa (NIS)</label>
                             <input type="text" class="form-control" id="nok" value="<?= $s['jenis_kelamin']; ?>">
                         </div>
                         <div class="form-group">
@@ -144,7 +144,7 @@
                                     <input type="text" class="form-control" id="nik" name="nik" value="<?= $s['nik']; ?>" maxlength="16" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nok">Nomor KK (NOK)</label>
+                                    <label for="nok">Nomor Induk Siswa (NIS)</label>
                                     <input type="text" class="form-control" id="nok" name="nok" maxlength="16" value="<?= $s['nok']; ?>">
                                     <?= form_error('nok', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>

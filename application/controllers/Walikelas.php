@@ -8,6 +8,7 @@ class Walikelas extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Walikelas_model');
+		$this->load->model('Siswas_model');
     }
 
     public function index()
@@ -15,7 +16,8 @@ class Walikelas extends CI_Controller
 
         $data['title'] = 'Wali Kelas';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['walikelas'] = $this->Walikelas_model->getAllWalikelas();
+		$data['walikelas'] = $this->Walikelas_model->getWaliKelas();
+		$data['kelas'] = $this->Siswas_model->getAllKelas();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -49,7 +51,9 @@ class Walikelas extends CI_Controller
 
     public function tambahWalikelas()
     {
-        $this->form_validation->set_rules('name', 'Nama', 'trim|required', [
+		$data['kelas'] = $this->Siswas_model->getAllKelas();
+
+		$this->form_validation->set_rules('name', 'Nama', 'trim|required', [
             'required' => 'nama tidak boleh kosong'
         ]);
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]', [
@@ -96,8 +100,8 @@ class Walikelas extends CI_Controller
             $data['kelas'] = $this->Walikelas_model->getAllKelas();
 
             $this->form_validation->set_rules('name', 'Nama', 'trim|required');
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
-            $this->form_validation->set_rules('kelas_id', 'Kelas', 'trim|required|is_unique[walikelas.kelas_id]');
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+            $this->form_validation->set_rules('kelas_id', 'Kelas', 'trim|required');
 
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/header', $data);
@@ -105,7 +109,8 @@ class Walikelas extends CI_Controller
                 $this->load->view('templates/topbar', $data);
                 $this->load->view('walikelas/editwalikelas', $data);
                 $this->load->view('templates/footer', $data);
-            } else {
+            }
+			else {
                 // Edit Data Siswa
                 $this->Walikelas_model->editWalikelas();
             }

@@ -22,9 +22,26 @@
                         <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
-                        <label for="kelas_id">Kelas Binaan</label>
-                        <input type="text" class="form-control" id="kelas_id" name="kelas_id" value="<?= set_value('kelas_id'); ?>">
-                        <?= form_error('kelas_id', '<small class="text-danger pl-3">', '</small>'); ?>
+						<label for="kelas_id">Kelas Binaan</label>
+						<select class="custom-select form-control" id="kelas_id" name="kelas_id" type="text">
+							<option value="">-- Pilih kelas --</option> -->
+							<?php foreach ($kelas as $k) :
+
+								if ($k['id'] == set_value('nama_kelas')){
+									$selected = 'selected';
+								}
+								else{
+									$selected = "";
+								}
+
+								$output = '<option value="'.$k['id'].'" '.$selected.'>'. $k['nama_kelas'].'</option>';
+
+								echo $output;
+							?>
+
+							<?php endforeach; ?>
+						</select>
+						<?= form_error('kelas_id', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Simpan</button>
