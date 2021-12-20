@@ -49,11 +49,16 @@ class Auth extends CI_Controller
                     ];
 
                     $this->session->set_userdata($data);
+
                     if ($user['role_id'] == 1) {
                         redirect('admin');
-                    } else {
-                        redirect('user');
                     }
+					else if ($user['role_id'] == 3){
+                        redirect('walikelas');
+                    }
+					else{
+						redirect('user');
+					}
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     Password Salah!</div>
@@ -67,6 +72,8 @@ class Auth extends CI_Controller
                 redirect('auth');
             }
         } else if ($userWalikelas) {
+			print_r("wali");
+			exit();
             // jika user ada
             if ($password == $userWalikelas['email']) {
                 $data = [
@@ -75,7 +82,7 @@ class Auth extends CI_Controller
                 ];
 
                 $this->session->set_userdata($data);
-                redirect('teacher');
+                redirect('user');
             }
         } else {
             //user tidak ada

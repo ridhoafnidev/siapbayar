@@ -97,7 +97,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Grafik Total Transaksi <?= date('Y') ?></h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -220,7 +220,7 @@
 		data: {
 			labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			datasets: [{
-				label: "Earnings",
+				label: "Transaksi",
 				lineTension: 0.3,
 				backgroundColor: "rgba(78, 115, 223, 0.05)",
 				borderColor: "rgba(78, 115, 223, 1)",
@@ -264,7 +264,7 @@
 						padding: 10,
 						// Include a dollar sign in the ticks
 						callback: function (value, index, values) {
-							return 'IDR ' + number_format(value);
+							return 'Rp. ' + number_format(value);
 						}
 					},
 					gridLines: {
@@ -296,7 +296,7 @@
 				callbacks: {
 					label: function (tooltipItem, chart) {
 						var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-						return datasetLabel + ': IDR ' + number_format(tooltipItem.yLabel);
+						return datasetLabel + ': Rp ' + number_format(tooltipItem.yLabel);
 					}
 				}
 			}
