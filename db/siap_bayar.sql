@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 20, 2021 at 06:52 AM
+-- Generation Time: Dec 21, 2021 at 03:45 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -159,7 +159,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (7, 'Admin', 'admin@gmail.com', 'computer.png', '$2y$13$8nvKA6rSfrk6GadP0O1Y1.qpPCfLFylDQVl/4aq9QJyQEvd5z37DW', 1, 1, 1571583076),
 (8, 'Intan', 'intan@gmail.com', 'user-profile-icon-7.jpg', '$2y$13$8nvKA6rSfrk6GadP0O1Y1.qpPCfLFylDQVl/4aq9QJyQEvd5z37DW', 1, 1, 1576980466),
-(12, 'Nila', 'nila@gmail.com', 'computer.png', '$2y$13$8nvKA6rSfrk6GadP0O1Y1.qpPCfLFylDQVl/4aq9QJyQEvd5z37DW', 3, 1, 878787),
+(12, 'Nila Edit2', 'nila@gmail.com', 'computer.png', '$2y$13$8nvKA6rSfrk6GadP0O1Y1.qpPCfLFylDQVl/4aq9QJyQEvd5z37DW', 3, 1, 1640037146),
 (13, 'Ina Anggraini', 'users@gmail.com', 'default.jpg', '$2y$13$8nvKA6rSfrk6GadP0O1Y1.qpPCfLFylDQVl/4aq9QJyQEvd5z37DW', 3, 1, 1639305947);
 
 -- --------------------------------------------------------
@@ -305,7 +305,7 @@ CREATE TABLE `walikelas` (
 --
 
 INSERT INTO `walikelas` (`id`, `name`, `email`, `kelas_id`, `date_created`) VALUES
-(1, 'Nila', 'nila@gmail.com', 7, 78787),
+(1, 'Nila Edit2', 'nila@gmail.com', 7, 1640037146),
 (2, 'Ina Anggraini', 'users@gmail.com', 7, 1639305947);
 
 --
@@ -417,12 +417,6 @@ ALTER TABLE `kurikulum`
 --
 ALTER TABLE `transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
