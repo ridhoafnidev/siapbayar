@@ -336,6 +336,17 @@ class Siswas_model extends CI_Model
         }
     }
 
+	public function printLaporanPerTransaksiSiswa($id){
+
+		$query = "SELECT *
+                    FROM `data_siswa` JOIN `transaksi`
+                      ON `data_siswa`.`id`= `transaksi`.`id_siswa` 
+					WHERE `transaksi`.`id` = '$id'
+        ";
+
+		return $this->db->query($query)->result_array();
+	}
+
 	public function getCurrentMounth(){
 		return $this->converMounthIndo(date('m'));
 	}
@@ -366,6 +377,28 @@ class Siswas_model extends CI_Model
 				return "November";
 			case 12 :
 				return "Desember";
+		}
+	}
+
+
+
+	public function hapusTransaksiPerSiswa($id)
+	{
+		$result = $this->db->get_where('transaksi', ['id' => $id])->row_array();
+
+		if (!$result) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Data transaksi gagal dihapus! data tidak ditemukan</div>
+                ');
+			redirect('siswa/transaksi');
+		} else {
+			$this->db->where('id', $id);
+			$this->db->delete('transaksi');
+
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Data Transaksi Berhasil dihapus!</div>
+                ');
+			redirect('siswa/transaksi');
 		}
 	}
 }

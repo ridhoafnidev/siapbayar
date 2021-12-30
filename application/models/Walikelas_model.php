@@ -14,7 +14,7 @@ class Walikelas_model extends CI_Model
     }
 
 	public function getWaliKelas(){
-		$query = "SELECT *
+		$query = "SELECT walikelas.id as id_wali_kelas, walikelas.name, walikelas.email, walikelas.kelas_id, kelas.nama_kelas
                     FROM `walikelas` JOIN `kelas`
                       ON `walikelas`.`kelas_id` = `kelas`.`id`
         ";

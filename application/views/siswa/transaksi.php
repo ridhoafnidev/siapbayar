@@ -43,10 +43,13 @@
                                     ?>
                                 </td>
                                 <td class="text-center">
+                                    <a href="<?= base_url('siswa/printlaporanpertransaksisiswa/'.$t['id'])  ?>" class="badge badge-warning">
+                                        <i class="fas fa-fw fa-print fa-sm"></i> Print
+                                    </a>
                                     <a href="#detailModal<?= $t['id']; ?>" data-toggle="modal" class="badge badge-info">
                                         <i class="fas fa-fw fa-book-reader fa-sm"></i> Detail
                                     </a>
-                                    <a href="<?= base_url('siswa/hapustransaksi'); ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin ingin menghapus data ini?');">
+                                    <a href="<?= base_url('siswa/hapustransaksi/'.$t['id']); ?>" class="badge badge-danger" onclick="return confirm('apakah anda yakin ingin menghapus data ini?');">
                                         <i class="far fa-fw fa-trash-alt fa-sm"></i> delete
                                     </a>
                                 </td>

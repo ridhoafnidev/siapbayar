@@ -102,6 +102,14 @@ class Siswa extends CI_Controller
         $this->Siswas_model->hapusSiswa($nik);
     }
 
+	public function printlaporanpertransaksisiswa($id){
+		$data['transaksi'] = $this->Siswas_model->printLaporanPerTransaksiSiswa($id);;
+		$this->load->library('pdf');
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->fileName = "Lappran.pdf";
+		$this->pdf->load_view('siswa/laporan', $data);
+	}
+
     public function transaksi()
     {
         $data['title'] = 'Transaksi';
@@ -154,4 +162,8 @@ class Siswa extends CI_Controller
             redirect('siswa');
         }
     }
+
+	public function hapustransaksi($id){
+		$this->Siswas_model->hapusTransaksiPerSiswa($id);
+	}
 }

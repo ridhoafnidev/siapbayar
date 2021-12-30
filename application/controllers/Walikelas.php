@@ -26,7 +26,7 @@ class Walikelas extends CI_Controller
         $this->load->view('templates/footer', $data);
     }
 
-    public function hapuswalikelas($email, $user, $result)
+    public function hapuswalikelas()
     {
         $email = $this->input->post('email');
         $result = $this->db->get_where('walikelas', ['email' => $email])->row_array();
@@ -34,7 +34,7 @@ class Walikelas extends CI_Controller
 
         if ($result) {
             // jika user ada, maka hapus data walikelas
-            $this->Walikelas_model->hapusWalikelas();
+            $this->Walikelas_model->hapusWalikelas($email, $user, $result);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Data Walikelas berhasil dihapus!</div>

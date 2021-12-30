@@ -31,8 +31,8 @@
                                 <td><?= $w['nama_kelas']; ?></td>
                                 <td><?= $w['email']; ?></td>
                                 <td class="text-center">
-                                    <a href="#editModal<?= $w['id']; ?>" class="badge badge-warning" data-target="#editModal<?= $w['id']; ?>" id="custId" data-toggle="modal"><i class="fas fa-fw fa-edit fa-sm"></i> edit</a>
-                                    <a href="#hapusModal<?= $w['id']; ?>" class="badge badge-danger" data-target="#hapusModal<?= $w['id']; ?>" id="custId" data-toggle="modal"><i class="far fa-fw fa-trash-alt fa-sm"></i> delete</a>
+                                    <a href="#editModal<?= $w['id_wali_kelas']; ?>" class="badge badge-warning" data-target="#editModal<?= $w['id_wali_kelas']; ?>" id="custId" data-toggle="modal"><i class="fas fa-fw fa-edit fa-sm"></i> edit</a>
+                                    <a href="#hapusModal<?= $w['id_wali_kelas']; ?>" class="badge badge-danger" data-target="#hapusModal<?= $w['id_wali_kelas']; ?>" id="custId" data-toggle="modal"><i class="far fa-fw fa-trash-alt fa-sm"></i> delete</a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -51,7 +51,7 @@
 
 <!-- Hapus Modal-->
 <?php foreach ($walikelas as $w) : ?>
-    <div class="modal fade" id="hapusModal<?= $w['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="hapusModal<?= $w['id_wali_kelas']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -91,7 +91,7 @@
 
 <!-- edit Modal-->
 <?php foreach ($walikelas as $w) : ?>
-    <div class="modal fade" id="editModal<?= $w['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal<?= $w['id_wali_kelas']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
